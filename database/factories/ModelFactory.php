@@ -12,10 +12,13 @@
 */
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
+	$nations = App\Nation::all()->lists('id')->all();
     return [
         'name' => $faker->name,
         'email' => $faker->safeEmail,
         'password' => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
+        'telephone' => $faker->phoneNumber,
+        'nation_id' => $faker->randomElement($nations),
     ];
 });

@@ -23,4 +23,19 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected $appends = ['nationality'];
+
+    /**
+    * Relationships
+    */
+    public function nation()
+    {
+        return $this->belongsTo('App\Nation');
+    }
+
+    public function getNationalityAttribute()
+    {
+        return $this->nation->name;
+    }
 }
