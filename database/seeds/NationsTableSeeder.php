@@ -11,9 +11,6 @@ class NationsTableSeeder extends Seeder
 	 */
 	public function run()
 	{
-		DB::statement('SET FOREIGN_KEY_CHECKS = 0');
-		DB::table('nations')->truncate();
-
 		$nationalities = array (
 			0 => 
 			array (
@@ -1263,6 +1260,5 @@ class NationsTableSeeder extends Seeder
 			);
 
 		DB::table('nations')->insert($nationalities);
-		DB::statement('SET FOREIGN_KEY_CHECKS = 1');
 	}
 }
