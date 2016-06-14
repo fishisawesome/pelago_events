@@ -29,7 +29,13 @@ Vue.component('users', {
 			this.$http.post('users', { name: this.name, telephone: this.telephone, nation_id: this.nation_id }, function(){
 				this.fetchList();
 			});
+			this.nation_id = '';
+			this.name = '';
+			this.telephone = '';
 			$('.create-user-modal').modal('hide');
+			this.$http.post('csrf', function(data){
+				$('#token').val(data);
+			});
 		}
 	}
 });

@@ -5,7 +5,7 @@
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title">Create New User</h4>
 			</div>
-			<form @submit.prevent="submitUser">
+			<form @submit.prevent="submitUser" id="submitUser">
 
 			<div class="modal-body">
 				<fieldset>
@@ -42,7 +42,7 @@
 								<option value="{{ $nation->id }}">{{ $nation->name }}</option>
 								@endforeach
 							</select>
-							<div class="help-block" v-show="!nationality">
+							<div class="help-block" v-show="!nation_id">
 							Please select a nationality.
 							</div>
 						</div>
